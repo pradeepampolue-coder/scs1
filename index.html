@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aegis-Link | Secure Satellite Uplink</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS must be a link tag for browser compatibility in ESM mode -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <style>
+        body {
+            background-color: #050505;
+            color: #e5e7eb;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            margin: 0;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass { background: rgba(17, 17, 17, 0.8); backdrop-filter: blur(8px); }
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 50;
+            background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(34,197,94,0.05) 50%, rgba(0,0,0,0) 100%);
+            opacity: 0.1;
+            position: absolute;
+            bottom: 100%;
+            animation: scan 4s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes scan {
+            0% { bottom: 100%; }
+            100% { bottom: -100px; }
+        }
+        /* Tactical Map Styles - High Visibility */
+        .leaflet-container {
+            background: #111 !important;
+            outline: none;
+        }
+        /* Removed filters entirely to show tiles at full brightness */
+        .leaflet-tile-pane {
+            filter: none !important;
+        }
+        .custom-marker {
+            background: none;
+            border: none;
+        }
+        /* Ensure tooltips are readable */
+        .leaflet-tooltip {
+            background-color: rgba(0, 0, 0, 0.9) !important;
+            color: #22c55e !important;
+            border: 1px solid #22c55e !important;
+            font-family: 'JetBrains Mono', monospace !important;
+            font-size: 10px !important;
+            text-transform: uppercase;
+        }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@19.0.0",
+        "react/": "https://esm.sh/react@19.0.0/",
+        "react-dom": "https://esm.sh/react-dom@19.0.0",
+        "react-dom/": "https://esm.sh/react-dom@19.0.0/",
+        "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+        "leaflet": "https://esm.sh/leaflet@1.9.4"
+      }
+    }
+    </script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

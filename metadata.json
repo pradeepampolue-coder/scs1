@@ -1,0 +1,10 @@
+
+{
+  "name": "Aegis-Link Satellite Messenger",
+  "description": "A highly secure, offline-first, peer-to-peer communication suite for exactly two users. Features E2EE, satellite simulation, and tamper-resistant architecture.",
+  "requestFramePermissions": [
+    "geolocation",
+    "camera",
+    "microphone"
+  ]
+}
